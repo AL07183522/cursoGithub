@@ -29,7 +29,7 @@ jobs:
 
       # llama otro worflowlib
       - name: Llamar workflowlib
-        uses: ./.github/workflows/workflowlib_imprimevars.yml
+        uses: AL07183522/repositorio/.github/workflows/workflowlib_imprimevars.yml@main
         with:
           VAR_1: ${{ vars.VAR_SEGUNDO_APELLIDO_REPO }}
           VAR_2: ${{ vars.VAR_APELLIDO }}
