@@ -14,24 +14,26 @@ on:
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+ preparar-vars:
     runs-on: ubuntu-latest
-    #declaramos entorno para acceder a las variables y secretos del repositorio
-    # y del entorno
     environment: DESARROLLO
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    outputs:
+      var1: ${{ steps.set_vars.outputs.var1 }}
+      var2: ${{ steps.set_vars.outputs.var2 }}
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - name: Obtener variables
+        id: set_vars
+        run: |
+          echo "var1=${{ vars.VAR_SEGUNDO_APELLIDO_REPO }}" >> $GITHUB_OUTPUT
+          echo "var2=${{ vars.VAR_APELLIDO }}" >> $GITHUB_OUTPUT
 
-      # llama otro worflowlib
-      - name: Llamar workflowlib
-        uses: AL07183522/repositorio/.github/workflows/workflowlib_imprimevars.yml@main
-        with:
-          VAR_1: ${{ vars.VAR_SEGUNDO_APELLIDO_REPO }}
-          VAR_2: ${{ vars.VAR_APELLIDO }}
-          SECRETO_1: ${{ secrets.NOMBRE_SECRETO }}
-          SECRETO_2: ${{ secrets.SEGUNDO_NOMBRE_ENTORNO }}
+ llamar-workflowlib:
+    needs: preparar-vars
+    uses: AL07183522/cursoGithub/.github/workflows/workflowlib_imprimevars.yml@main
+    with:
+      VAR_1: ${{ needs.preparar-vars.outputs.var1 }}
+      VAR_2: ${{ needs.preparar-vars.outputs.var2 }}
+    secrets:
+      SECRETO_1: ${{ secrets.NOMBRE_SECRETO }}
+      SECRETO_2: ${{ secrets.SEGUNDO_NOMBRE_ENTORNO }}
+
