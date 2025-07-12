@@ -36,8 +36,6 @@ jobs:
     with:
       VAR_1: ${{ needs.preparar-vars.outputs.var1 }}
       VAR_2: ${{ needs.preparar-vars.outputs.var2 }}
-      #SECRETO_2: ${{ needs.preparar-vars.outputs.secreto2 }}
+      SECRETO_2: ${{ needs.preparar-vars.outputs.secreto2 }} #github va a bloquear el acceso a los secretos de los workflows que llaman a otros workflows se debe poner a nivel repo
     secrets:
       SECRETO_1: ${{ secrets.NOMBRE_SECRETO }}
-      SECRETO_2: ${{ needs.preparar-vars.outputs.secreto2 }}
-    
