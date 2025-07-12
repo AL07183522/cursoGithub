@@ -3,9 +3,9 @@ name: Llama action desde otro repositorio
 on:
   push:
     branches: [ "main" ]
-workflow_dispatch:
+  workflow_dispatch:
 jobs:
-  saludo personalizado:
+  saludo_personalizado:
     runs-on: ubuntu-latest
     steps:
       - uses: manu/githubaction_primeraction@main
