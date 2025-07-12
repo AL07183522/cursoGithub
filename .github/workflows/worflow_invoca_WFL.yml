@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "var1=${{ vars.VAR_SEGUNDO_APELLIDO_REPO }}" >> $GITHUB_OUTPUT
           echo "var2=${{ vars.VAR_APELLIDO }}" >> $GITHUB_OUTPUT
-          run: echo entorno DESARROLLO SECRET is ${{ secrets.SEGUNDO_NOMBRE_ENTORNO }}
+          echo entorno DESARROLLO SECRET is ${{ secrets.SEGUNDO_NOMBRE_ENTORNO }}
 
  llamar-workflowlib:
     needs: preparar-vars
