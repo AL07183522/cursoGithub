@@ -1,0 +1,9 @@
+on: [push]
+
+jobs:
+  saludo personalizado:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: manu/githubaction_primeraction@main
+        with:
+          name: Manuel de Jesus Ramiro Velazquez Tapia
