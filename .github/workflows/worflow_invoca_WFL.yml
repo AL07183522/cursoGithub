@@ -36,8 +36,8 @@ jobs:
     with:
       VAR_1: ${{ needs.preparar-vars.outputs.var1 }}
       VAR_2: ${{ needs.preparar-vars.outputs.var2 }}
-      SECRETO_2: ${{ needs.preparar-vars.outputs.secreto2 }}
+      #SECRETO_2: ${{ needs.preparar-vars.outputs.secreto2 }}
     secrets:
       SECRETO_1: ${{ secrets.NOMBRE_SECRETO }}
-      
+      SECRETO_2: ${{ needs.preparar-vars.outputs.secreto2 }}
     
