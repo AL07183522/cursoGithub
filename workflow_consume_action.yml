@@ -1,11 +1,13 @@
 name: Llama action desde otro repositorio
 
-on: [push]
-branches: [ "main" ]
+on:
+  push:
+    branches: [ "main" ]
+workflow_dispatch:
 jobs:
   saludo personalizado:
     runs-on: ubuntu-latest
     steps:
       - uses: manu/githubaction_primeraction@main
         with:
-          name: Manuel de Jesus Ramiro Velazquez Tapia
+          name: "Manuel de Jesus Ramiro Velazquez Tapia"
