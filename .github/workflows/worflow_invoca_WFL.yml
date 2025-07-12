@@ -20,6 +20,7 @@ jobs:
     outputs:
       var1: ${{ steps.set_vars.outputs.var1 }}
       var2: ${{ steps.set_vars.outputs.var2 }}
+      secreto2: ${{ steps.set_vars.outputs.secreto2 }}
     steps:
       - name: Obtener variables
         id: set_vars
