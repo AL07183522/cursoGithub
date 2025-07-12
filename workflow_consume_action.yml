@@ -1,3 +1,5 @@
+name: Llama action desde otro repositorio
+
 on: [push]
 
 jobs:
