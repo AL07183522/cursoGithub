@@ -34,6 +34,8 @@ jobs:
           echo entorno DESARROLLO SECRET is ${{ secrets.SEGUNDO_NOMBRE_ENTORNO }}
           echo REPOSITORY var VAR_SEGUNDO_APELLIDO_REPO is ${{ vars.VAR_SEGUNDO_APELLIDO_REPO }}
           echo entorno DESARROLLO var VAR_APELLIDO is ${{ vars.VAR_APELLIDO }}
+          echo "Mi clave de API falsa es: ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ1234567890"
+
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
